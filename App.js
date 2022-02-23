@@ -1,20 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, View, Button } from "react-native";
+import Home from "./components/Home";
+import ShopList from "./components/ShopList";
+import { NativeBaseProvider, Text, Box } from "native-base";
+import ProductList from "./components/ProductList";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NativeBaseProvider>
+      <View style={styles.container}>
+        <Button
+          onPress={() => alert("Hello World!")}
+          title="Press Me"
+          color="blue"
+          accessibilityLabel="Learn more about this purple button"
+        />
+        <ShopList />
+        <ProductList />
+        <StatusBar style="auto" />
+      </View>
+    </NativeBaseProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#EB5E55",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
