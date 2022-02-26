@@ -1,14 +1,24 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { StyleSheet, View } from "react-native";
+import { Text, Center, ScrollView } from "native-base";
+import ProductItem from "./ProductItem";
+import { observer } from "mobx-react";
 
-const ProductList = () => {
+const ProductList = ({ products }) => {
+  const productList = products.map((product) => (
+    <ProductItem product={product} />
+  ));
   return (
     <View>
-      <Text>ProductList</Text>
+      <Center>
+        <Text m="1" fontSize="xl">
+          ProductList
+        </Text>
+        {productList}
+      </Center>
     </View>
   );
 };
 
-export default ProductList;
+export default observer(ProductList);
 
 const styles = StyleSheet.create({});

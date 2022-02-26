@@ -1,12 +1,19 @@
 import { Center } from "native-base";
-import { Text, View, Image, StyleSheet } from "react-native";
+import { Text, View, Image, StyleSheet, Pressable } from "react-native";
+import { HStack } from "native-base";
+import ShopDetail from "./ShopDetail";
+import { baseURL } from "../stores/instance";
 
-const ShopItem = ({ shop }) => {
+const ShopItem = ({ shop, navigation }) => {
   return (
-    <View>
-      <Text>{shop.name}</Text>
-      <Image style={styles.image} source={{ uri: shop.image }} />
-    </View>
+    <Pressable onPress={() => navigation.navigate("Shop Detail", { shop })}>
+      <HStack p="2">
+        <Center>
+          <Text>{shop.name}</Text>
+          <Image style={styles.image} source={{ uri: baseURL + shop.image }} />
+        </Center>
+      </HStack>
+    </Pressable>
   );
 };
 

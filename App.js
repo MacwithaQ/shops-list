@@ -1,32 +1,25 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Button } from "react-native";
+import { StyleSheet, ScrollView, View } from "react-native";
+import { NativeBaseProvider } from "native-base";
+import ShopDetail from "./components/ShopDetail";
+import { LinearGradient } from "expo-linear-gradient";
+import { NavigationContainer } from "@react-navigation/native";
 import Home from "./components/Home";
-import ShopList from "./components/ShopList";
-import { NativeBaseProvider, Text, Box } from "native-base";
-import ProductList from "./components/ProductList";
-
+import RootNavigator from "./components/Navigation";
+import GradientContainer from "./components/GradientContainer";
 export default function App() {
   return (
     <NativeBaseProvider>
-      <View style={styles.container}>
-        <Button
-          onPress={() => alert("Hello World!")}
-          title="Press Me"
-          color="blue"
-          accessibilityLabel="Learn more about this purple button"
-        />
-        <ShopList />
-        <ProductList />
-        <StatusBar style="auto" />
-      </View>
+      <RootNavigator />
     </NativeBaseProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    margin: 50,
+    padding: 10,
     flex: 1,
-    backgroundColor: "#EB5E55",
     alignItems: "center",
     justifyContent: "center",
   },
