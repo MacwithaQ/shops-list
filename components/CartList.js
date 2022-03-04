@@ -12,7 +12,9 @@ const CartList = () => {
     <View>
       <Center>
         <Text m="1" fontSize="xl"></Text>
-        <VStack>{cartList}</VStack>
+        <ScrollView>
+          <VStack>{cartList}</VStack>
+        </ScrollView>
       </Center>
     </View>
   );
@@ -20,4 +22,8 @@ const CartList = () => {
 
 export default observer(CartList);
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  scroller: {
+    width: "100%",
+  },
+});

@@ -16,12 +16,6 @@ class ShopStore {
       console.log("ShopStore -> fetchShops -> error", error);
     }
   };
-
-  // fetchProducts = async () => {
-  //   try {
-  //     const response = await instance.get(/shopproducts)
-  //   }
-  // }
 }
 
 const shopStore = new ShopStore();

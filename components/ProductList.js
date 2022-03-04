@@ -7,18 +7,17 @@ const ProductList = ({ products }) => {
   const productList = products.map((product) => (
     <ProductItem product={product} />
   ));
+  console.log(productList);
   return (
     <View>
       <Center>
         <Text m="1" fontSize="xl">
           ProductList
         </Text>
-        {productList}
+        <View>{productList}</View>
       </Center>
     </View>
   );
 };
 
 export default observer(ProductList);
-
-const styles = StyleSheet.create({});

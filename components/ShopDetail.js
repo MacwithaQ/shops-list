@@ -1,4 +1,4 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, ScrollView } from "react-native";
 import { Image, Center, Text } from "native-base";
 import { observer } from "mobx-react";
 import shopStore from "../stores/shopStore";
@@ -7,8 +7,9 @@ import { baseURL } from "../stores/instance";
 
 const ShopDetail = ({ route }) => {
   const { shop } = route.params;
+  console.log(shop.products);
   return (
-    <View>
+    <ScrollView style={styles.mainView}>
       <Center>
         <Text fontSize="4xl" m="2">
           {shop.name}
@@ -20,7 +21,7 @@ const ShopDetail = ({ route }) => {
         />
         <ProductList products={shop.products} />
       </Center>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -30,5 +31,8 @@ const styles = StyleSheet.create({
   image: {
     width: 100,
     height: 100,
+  },
+  mainView: {
+    height: "100%",
   },
 });

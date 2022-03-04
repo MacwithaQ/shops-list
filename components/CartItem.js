@@ -27,7 +27,7 @@ const CartItem = ({ item }) => {
         <Text>{`$${item.product.price * item.quantity}`}</Text>
         <Image
           alt="item image"
-          source={{ uri: item.product.image }}
+          source={{ uri: baseURL + item.product.image }}
           size="lg"
         />
       </Center>
