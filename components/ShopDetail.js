@@ -7,7 +7,6 @@ import { baseURL } from "../stores/instance";
 
 const ShopDetail = ({ route }) => {
   const { shop } = route.params;
-  console.log(shop.products);
   return (
     <ScrollView style={styles.mainView}>
       <Center>
