@@ -1,5 +1,5 @@
 import { StyleSheet, View } from "react-native";
-import { Text, Center, ScrollView, VStack } from "native-base";
+import { Text, Center, ScrollView, VStack, Button } from "native-base";
 import CartItem from "./CartItem";
 import cartStore from "../stores/cartStore";
 import { observer } from "mobx-react";
@@ -14,6 +14,16 @@ const CartList = () => {
         <Text m="1" fontSize="xl"></Text>
         <ScrollView>
           <VStack>{cartList}</VStack>
+          <Button
+            size="lg"
+            variant="subtle"
+            colorScheme="primary"
+            onPress={() => {
+              cartStore.checkOutFromCart();
+            }}
+          >
+            Checkout
+          </Button>
         </ScrollView>
       </Center>
     </View>

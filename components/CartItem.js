@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View } from "react-native";
-import { Box, Center, VStack, Image } from "native-base";
+import { Box, Center, VStack, Image, Button } from "native-base";
 import React from "react";
 import { baseURL } from "../stores/instance";
+import cartStore from "../stores/cartStore";
 
 const CartItem = ({ item }) => {
   return (
@@ -30,6 +31,16 @@ const CartItem = ({ item }) => {
           source={{ uri: baseURL + item.product.image }}
           size="lg"
         />
+        <Button
+          size="lg"
+          variant="subtle"
+          colorScheme="primary"
+          onPress={() => {
+            cartStore.removeItemFromCart(item.product._id);
+          }}
+        >
+          Delete
+        </Button>
       </Center>
     </Box>
   );
