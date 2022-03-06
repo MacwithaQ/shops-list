@@ -4,7 +4,7 @@ import CartItem from "./CartItem";
 import cartStore from "../stores/cartStore";
 import { observer } from "mobx-react";
 
-const CartList = () => {
+const CartList = ({ navigation }) => {
   const cartList = cartStore.items.map((item) => (
     <CartItem key={item._id} item={item} />
   ));
@@ -19,7 +19,7 @@ const CartList = () => {
             variant="subtle"
             colorScheme="primary"
             onPress={() => {
-              cartStore.checkOutFromCart();
+              cartStore.checkOutFromCart(navigation);
             }}
           >
             Checkout

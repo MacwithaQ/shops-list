@@ -51,15 +51,16 @@ class CartStore {
   };
 
   // Checkout function
-  checkOutFromCart = async () => {
+  checkOutFromCart = async (navigation) => {
     this.items = [];
     const items = JSON.stringify(this.items);
     try {
       await AsyncStorage.setItem("myCart", items);
+      Alert.alert("Thank you for shopping with us!");
+      navigation.navigate("Shops List");
     } catch (error) {
       console.log(error);
     }
-    Alert.alert("Thank you for shopping with us!");
   };
 
   // calculated totalQuantity
