@@ -1,12 +1,21 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Alert, StyleSheet, Text, View } from "react-native";
 import { Badge, VStack } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { observer } from "mobx-react";
 import cartStore from "../../stores/cartStore";
+import authStore from "../../stores/authStore";
 
 const CartButton = () => {
   const navigation = useNavigation();
+  const handlePress = () => {
+    if (authStore.user) {
+      navigation.navigate("Cart");
+    } else {
+      Alert.alert("Please sign in to access cart");
+      navigation.navigate("Sign In");
+    }
+  };
   return (
     <VStack>
       {cartStore.totalQuantity > 0 && (
@@ -31,7 +40,7 @@ const CartButton = () => {
         size={24}
         color="black"
         style={styles.button}
-        onPress={() => navigation.navigate("Cart")}
+        onPress={handlePress}
       />
     </VStack>
   );

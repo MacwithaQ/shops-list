@@ -41,7 +41,6 @@ class CartStore {
   // Function to remove item from cart
   removeItemFromCart = async (productId) => {
     this.items = this.items.filter(({ product }) => product._id !== productId);
-    console.log(this.items);
     const items = JSON.stringify(this.items);
     try {
       await AsyncStorage.setItem("myCart", items);
